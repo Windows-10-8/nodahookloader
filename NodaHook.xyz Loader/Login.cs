@@ -19,13 +19,32 @@ namespace NodaHook.xyz_Loader
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Not complete
-            bool logged = false;
 
-            if(!logged)
+            //Indian tut remember me c# ez asf  
+            Properties.Settings.Default.username = username.Text;
+            Properties.Settings.Default.password = password.Text;
+
+            //If logged-in:
+            if (Code.Text == "109871" || Code.Text == "186851" && password.Text == "Test" && username.Text == "Dev")
             {
-                MessageBox.Show("User not found or the password is incorrect!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                authed auth = new authed();
+                auth.Show();
+                this.Hide(); 
             }
+            
+            /*   //Not complete
+               bool logged = false;
+
+               if(!logged)
+               {
+                   MessageBox.Show("User not found or the password is incorrect!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               }*/
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            username.Text = Properties.Settings.Default.username;
+            password.Text = Properties.Settings.Default.password;
         }
     }
 }

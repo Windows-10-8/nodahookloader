@@ -23,9 +23,10 @@ namespace NodaHook.xyz_Loader
             //Indian tut remember me c# ez asf  
             Properties.Settings.Default.username = username.Text;
             Properties.Settings.Default.password = password.Text;
+            Properties.Settings.Default.seccode = Code.Text;
 
             //If logged-in:
-            if (Code.Text == "109871" || Code.Text == "186851" && password.Text == "Test" && username.Text == "Dev")
+            if (Code.Text == "109871" && password.Text == "Test" && username.Text == "Dev")
             {
                 authed auth = new authed();
                 auth.Show();
@@ -45,6 +46,12 @@ namespace NodaHook.xyz_Loader
         {
             username.Text = Properties.Settings.Default.username;
             password.Text = Properties.Settings.Default.password;
+            Code.Text = Properties.Settings.Default.seccode;
+        }
+
+        private void Code_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -31,7 +31,6 @@ namespace NodaHook.xyz_Loader
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.username = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
@@ -46,23 +45,13 @@ namespace NodaHook.xyz_Loader
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.Code = new Guna.UI2.WinForms.Guna2TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::NodaHook.xyz_Loader.Properties.Resources.Immagine_2021_06_22_104332;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(93, 80);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // guna2Elipse1
             // 
             this.guna2Elipse1.BorderRadius = 50;
-            this.guna2Elipse1.TargetControl = this.pictureBox1;
             // 
             // username
             // 
@@ -146,7 +135,7 @@ namespace NodaHook.xyz_Loader
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(196, 294);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(223, 82);
+            this.button1.Size = new System.Drawing.Size(223, 68);
             this.button1.TabIndex = 3;
             this.button1.Text = "Login";
             this.button1.UseVisualStyleBackColor = false;
@@ -201,7 +190,7 @@ namespace NodaHook.xyz_Loader
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(9, 139);
+            this.label2.Location = new System.Drawing.Point(36, 139);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 16);
             this.label2.TabIndex = 7;
@@ -213,7 +202,7 @@ namespace NodaHook.xyz_Loader
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(9, 204);
+            this.label3.Location = new System.Drawing.Point(36, 193);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 16);
             this.label3.TabIndex = 8;
@@ -225,11 +214,11 @@ namespace NodaHook.xyz_Loader
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(9, 261);
+            this.label4.Location = new System.Drawing.Point(20, 250);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(33, 16);
+            this.label4.Size = new System.Drawing.Size(82, 16);
             this.label4.TabIndex = 10;
-            this.label4.Text = "Code";
+            this.label4.Text = "Security code";
             // 
             // Code
             // 
@@ -263,6 +252,17 @@ namespace NodaHook.xyz_Loader
             this.Code.Size = new System.Drawing.Size(390, 36);
             this.Code.TabIndex = 11;
             this.Code.UseSystemPasswordChar = true;
+            this.Code.TextChanged += new System.EventHandler(this.Code_TextChanged);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::NodaHook.xyz_Loader.Properties.Resources.Immagine_2021_06_22_104332;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(272, 17);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(54, 55);
+            this.pictureBox2.TabIndex = 12;
+            this.pictureBox2.TabStop = false;
             // 
             // Login
             // 
@@ -270,7 +270,8 @@ namespace NodaHook.xyz_Loader
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::NodaHook.xyz_Loader.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(617, 405);
+            this.ClientSize = new System.Drawing.Size(617, 374);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.Code);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -281,7 +282,6 @@ namespace NodaHook.xyz_Loader
             this.Controls.Add(this.button1);
             this.Controls.Add(this.password);
             this.Controls.Add(this.username);
-            this.Controls.Add(this.pictureBox1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -289,15 +289,13 @@ namespace NodaHook.xyz_Loader
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox1;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2TextBox username;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse2;
@@ -312,6 +310,7 @@ namespace NodaHook.xyz_Loader
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TextBox Code;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 

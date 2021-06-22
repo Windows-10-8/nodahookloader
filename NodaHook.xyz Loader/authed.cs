@@ -17,7 +17,7 @@ namespace NodaHook.xyz_Loader
     {
 
         string dll_name = "sys32";
-        int time_to_wait = 40000;
+        int time_to_wait = 3000;
 
         public authed()
         {

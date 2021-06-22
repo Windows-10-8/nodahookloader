@@ -46,5 +46,17 @@ namespace NodaHook.xyz_Loader.Properties {
                 this["password"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string seccode {
+            get {
+                return ((string)(this["seccode"]));
+            }
+            set {
+                this["seccode"] = value;
+            }
+        }
     }
 }

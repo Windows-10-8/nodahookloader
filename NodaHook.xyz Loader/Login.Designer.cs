@@ -46,6 +46,7 @@ namespace NodaHook.xyz_Loader
             this.label4 = new System.Windows.Forms.Label();
             this.Code = new Guna.UI2.WinForms.Guna2TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.guna2Elipse4 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -265,6 +266,11 @@ namespace NodaHook.xyz_Loader
             this.pictureBox2.TabIndex = 12;
             this.pictureBox2.TabStop = false;
             // 
+            // guna2Elipse4
+            // 
+            this.guna2Elipse4.BorderRadius = 10;
+            this.guna2Elipse4.TargetControl = this.Code;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -312,6 +318,7 @@ namespace NodaHook.xyz_Loader
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TextBox Code;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse4;
     }
 }
 

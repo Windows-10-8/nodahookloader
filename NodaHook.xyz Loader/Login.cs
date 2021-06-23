@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Management;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +23,18 @@ namespace NodaHook.xyz_Loader
         {
             InitializeComponent();
         }
+        public string get_web_content(string url)
+        {
+            Uri uri = new Uri(url);
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(uri);
+            request.Method = WebRequestMethods.Http.Get;
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            StreamReader reader = new StreamReader(response.GetResponseStream());
+            string output = reader.ReadToEnd();
+            response.Close();
 
+            return output;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             checkonline();
@@ -36,13 +50,57 @@ namespace NodaHook.xyz_Loader
                     Properties.Settings.Default.password = password.Text;
                     Properties.Settings.Default.seccode = Code.Text;
 
-                    //If logged-in:
-                    if (Code.Text == "109871" && password.Text == "Test" && username.Text == "Dev")
+                    var mbs = new ManagementObjectSearcher("Select ProcessorId From Win32_processor");
+                    ManagementObjectCollection mbsList = mbs.Get();
+                    string id = "";
+                    foreach (ManagementObject mo in mbsList)
                     {
+                        id = mo["ProcessorId"].ToString();
+                        break;
+                    }
+
+
+                    string json = get_web_content("https://nodahook.000webhostapp.com/api/v1/?mode=check&pwd=" + password.Text + "&key=" + username.Text + "&hw=" + id.ToString() + "&cc=" + Code.Text);
+                    Console.WriteLine("https://nodahook.000webhostapp.com/api/v1/?mode=check&pwd=" + password.Text + "&key=" + username.Text + "&hw=" + id.ToString() + "&cc=" + Code.Text);
+                    dynamic array = JsonConvert.DeserializeObject(json);
+
+                    Console.WriteLine(json.ToString());
+
+                    if (array.key == "valid")
+                    {
+                        Properties.Settings.Default.ex = array.expiry;
+                        Properties.Settings.Default.Save();
                         authed auth = new authed();
                         auth.Show();
                         this.Hide();
                     }
+                    else if(array.err == "expired")
+                    {
+                        MessageBox.Show("Error, account expired!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if(array.err == "hwid2")
+                    {
+                        MessageBox.Show("An error occured when updating hwid!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (array.err == "hwid")
+                    {
+                        MessageBox.Show("Error, hwid dismatch!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (array.err == "cc")
+                    {
+                        MessageBox.Show("Error, security code doesn't match!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (array.err == "pwd")
+                    {
+                        MessageBox.Show("Error, the password don't match!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (array.err == "404")
+                    {
+                        MessageBox.Show("Error, user not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+
+
                 }
                 else
                     MessageBox.Show("Invalid version of loader! Please download the new loader!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

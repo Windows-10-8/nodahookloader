@@ -35,6 +35,7 @@ namespace NodaHook.xyz_Loader
                     Properties.Settings.Default.username = username.Text;
                     Properties.Settings.Default.password = password.Text;
                     Properties.Settings.Default.seccode = Code.Text;
+                    Properties.Settings.Default.Save();
 
                     //If logged-in:
                     if (Code.Text == "109871" && password.Text == "Test" && username.Text == "Dev")

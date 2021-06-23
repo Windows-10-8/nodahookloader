@@ -46,10 +46,7 @@ namespace NodaHook.xyz_Loader
                 if (ver == "1.0.0")
                 {
                     //Indian tut remember me c# ez asf  
-                    Properties.Settings.Default.username = username.Text;
-                    Properties.Settings.Default.password = password.Text;
-                    Properties.Settings.Default.seccode = Code.Text;
-                    Properties.Settings.Default.Save();
+
 
                     var mbs = new ManagementObjectSearcher("Select ProcessorId From Win32_processor");
                     ManagementObjectCollection mbsList = mbs.Get();
@@ -69,6 +66,10 @@ namespace NodaHook.xyz_Loader
 
                     if (array.key == "valid")
                     {
+                        Properties.Settings.Default.username = username.Text;
+                        Properties.Settings.Default.password = password.Text;
+                        Properties.Settings.Default.seccode = Code.Text;
+                        Properties.Settings.Default.Save();
                         Properties.Settings.Default.ex = array.expiry;
                         Properties.Settings.Default.Save();
                         authed auth = new authed();

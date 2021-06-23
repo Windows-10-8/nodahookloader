@@ -49,6 +49,7 @@ namespace NodaHook.xyz_Loader
                     Properties.Settings.Default.username = username.Text;
                     Properties.Settings.Default.password = password.Text;
                     Properties.Settings.Default.seccode = Code.Text;
+                    Properties.Settings.Default.Save();
 
                     var mbs = new ManagementObjectSearcher("Select ProcessorId From Win32_processor");
                     ManagementObjectCollection mbsList = mbs.Get();

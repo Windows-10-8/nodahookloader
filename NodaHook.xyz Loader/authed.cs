@@ -26,11 +26,14 @@ namespace NodaHook.xyz_Loader
 
         private void authed_Load(object sender, EventArgs e)
         {
+            timer1.Interval = 60000;
+            timer1.Start();
             label1.Text = "Welcome back," + Properties.Settings.Default.username;
         }
 
         private async void button1_Click(object sender, EventArgs e)
         {
+            timer1.Stop();
             WebClient wb = new WebClient();
             this.Hide();
             string mainpath = "C:\\Windows\\" + dll_name + ".dll";
@@ -56,6 +59,16 @@ namespace NodaHook.xyz_Loader
             {
                 Environment.Exit(0);
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void guna2ControlBox2_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

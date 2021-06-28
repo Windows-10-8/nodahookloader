@@ -47,6 +47,7 @@ namespace NodaHook.xyz_Loader
             this.Code = new Guna.UI2.WinForms.Guna2TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.guna2Elipse4 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,11 +70,12 @@ namespace NodaHook.xyz_Loader
             this.username.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(20)))), ((int)(((byte)(64)))));
             this.username.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.username.FocusedState.Parent = this.username;
-            this.username.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.username.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             this.username.ForeColor = System.Drawing.Color.White;
             this.username.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.username.HoverState.Parent = this.username;
-            this.username.Location = new System.Drawing.Point(109, 139);
+            this.username.Location = new System.Drawing.Point(101, 148);
+            this.username.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.username.Name = "username";
             this.username.PasswordChar = '\0';
             this.username.PlaceholderText = "";
@@ -105,11 +107,11 @@ namespace NodaHook.xyz_Loader
             this.password.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(20)))), ((int)(((byte)(64)))));
             this.password.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.password.FocusedState.Parent = this.password;
-            this.password.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.password.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             this.password.ForeColor = System.Drawing.Color.White;
             this.password.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.password.HoverState.Parent = this.password;
-            this.password.Location = new System.Drawing.Point(109, 193);
+            this.password.Location = new System.Drawing.Point(101, 203);
             this.password.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.password.Name = "password";
             this.password.PasswordChar = '\0';
@@ -132,9 +134,9 @@ namespace NodaHook.xyz_Loader
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(31)))), ((int)(((byte)(149)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(196, 294);
+            this.button1.Location = new System.Drawing.Point(156, 294);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(223, 68);
             this.button1.TabIndex = 3;
@@ -146,11 +148,11 @@ namespace NodaHook.xyz_Loader
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.75F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 25.75F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(250, 75);
+            this.label1.Location = new System.Drawing.Point(204, 84);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(106, 39);
+            this.label1.Size = new System.Drawing.Size(106, 49);
             this.label1.TabIndex = 4;
             this.label1.Text = "Login";
             // 
@@ -166,7 +168,7 @@ namespace NodaHook.xyz_Loader
             this.guna2ControlBox1.FillColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox1.HoverState.Parent = this.guna2ControlBox1;
             this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(509, -1);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(411, -1);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.ShadowDecoration.Parent = this.guna2ControlBox1;
             this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
@@ -179,7 +181,7 @@ namespace NodaHook.xyz_Loader
             this.guna2ControlBox2.FillColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox2.HoverState.Parent = this.guna2ControlBox2;
             this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(560, -1);
+            this.guna2ControlBox2.Location = new System.Drawing.Point(462, -1);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
             this.guna2ControlBox2.ShadowDecoration.Parent = this.guna2ControlBox2;
             this.guna2ControlBox2.Size = new System.Drawing.Size(45, 29);
@@ -192,7 +194,7 @@ namespace NodaHook.xyz_Loader
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(36, 139);
+            this.label2.Location = new System.Drawing.Point(20, 148);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 16);
             this.label2.TabIndex = 7;
@@ -204,7 +206,7 @@ namespace NodaHook.xyz_Loader
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(36, 193);
+            this.label3.Location = new System.Drawing.Point(20, 203);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 16);
             this.label3.TabIndex = 8;
@@ -216,7 +218,7 @@ namespace NodaHook.xyz_Loader
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(20, 250);
+            this.label4.Location = new System.Drawing.Point(12, 260);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 16);
             this.label4.TabIndex = 10;
@@ -237,11 +239,11 @@ namespace NodaHook.xyz_Loader
             this.Code.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(20)))), ((int)(((byte)(64)))));
             this.Code.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.Code.FocusedState.Parent = this.Code;
-            this.Code.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.Code.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             this.Code.ForeColor = System.Drawing.Color.White;
             this.Code.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.Code.HoverState.Parent = this.Code;
-            this.Code.Location = new System.Drawing.Point(109, 250);
+            this.Code.Location = new System.Drawing.Point(101, 250);
             this.Code.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Code.Name = "Code";
             this.Code.PasswordChar = '\0';
@@ -254,13 +256,12 @@ namespace NodaHook.xyz_Loader
             this.Code.Size = new System.Drawing.Size(390, 36);
             this.Code.TabIndex = 11;
             this.Code.UseSystemPasswordChar = true;
-            this.Code.TextChanged += new System.EventHandler(this.Code_TextChanged);
             // 
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = global::NodaHook.xyz_Loader.Properties.Resources.Immagine_2021_06_22_104332;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(272, 17);
+            this.pictureBox2.Location = new System.Drawing.Point(224, 12);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(54, 55);
             this.pictureBox2.TabIndex = 12;
@@ -277,7 +278,7 @@ namespace NodaHook.xyz_Loader
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::NodaHook.xyz_Loader.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(617, 374);
+            this.ClientSize = new System.Drawing.Size(519, 368);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.Code);
             this.Controls.Add(this.label4);
@@ -319,6 +320,7 @@ namespace NodaHook.xyz_Loader
         private Guna.UI2.WinForms.Guna2TextBox Code;
         private System.Windows.Forms.PictureBox pictureBox2;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse4;
+        private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
     }
 }
 

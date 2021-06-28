@@ -1,14 +1,19 @@
 ﻿using Newtonsoft.Json;
+using NodaHook.antidbg;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Management;
 using System.Net;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -47,7 +52,6 @@ namespace NodaHook.xyz_Loader
                 {
                     //Indian tut remember me c# ez asf  
 
-
                     var mbs = new ManagementObjectSearcher("Select ProcessorId From Win32_processor");
                     ManagementObjectCollection mbsList = mbs.Get();
                     string id = "";
@@ -57,7 +61,6 @@ namespace NodaHook.xyz_Loader
                         break;
                     }
 
-
                     string json = get_web_content("https://nodahook.000webhostapp.com/api/v1/?mode=check&pwd=" + password.Text + "&key=" + username.Text + "&hw=" + id.ToString() + "&cc=" + Code.Text);
                     Console.WriteLine("https://nodahook.000webhostapp.com/api/v1/?mode=check&pwd=" + password.Text + "&key=" + username.Text + "&hw=" + id.ToString() + "&cc=" + Code.Text);
                     dynamic array = JsonConvert.DeserializeObject(json);
@@ -66,21 +69,20 @@ namespace NodaHook.xyz_Loader
 
                     if (array.key == "valid")
                     {
+                        Properties.Settings.Default.ex = array.expiry;
                         Properties.Settings.Default.username = username.Text;
                         Properties.Settings.Default.password = password.Text;
                         Properties.Settings.Default.seccode = Code.Text;
-                        Properties.Settings.Default.Save();
-                        Properties.Settings.Default.ex = array.expiry;
                         Properties.Settings.Default.Save();
                         authed auth = new authed();
                         auth.Show();
                         this.Hide();
                     }
-                    else if(array.err == "expired")
+                    else if (array.err == "expired")
                     {
                         MessageBox.Show("Error, account expired!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    else if(array.err == "hwid2")
+                    else if (array.err == "hwid2")
                     {
                         MessageBox.Show("An error occured when updating hwid!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -100,20 +102,9 @@ namespace NodaHook.xyz_Loader
                     {
                         MessageBox.Show("Error, user not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-
-
-
                 }
                 else
                     MessageBox.Show("Invalid version of loader! Please download the new loader!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                /*   //Not complete
-                   bool logged = false;
-
-                   if(!logged)
-                   {
-                       MessageBox.Show("User not found or the password is incorrect!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                   }*/
             }
             else
                 MessageBox.Show("You are not connected to internet! Please connect to your internet.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -145,14 +136,10 @@ namespace NodaHook.xyz_Loader
             Code.Text = Properties.Settings.Default.seccode;
         }
 
-        private void Code_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void guna2ControlBox2_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
         }
+
     }
 }
